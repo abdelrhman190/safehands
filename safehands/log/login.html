@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" id="htmlLang">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="site_title">تسجيل الدخول - SafeHands</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="../images-1-removebg-preview.png" alt="Safe Hands Icon" onerror="this.style.display='none';">
+                <span data-i18n="site_title">SafeHands</span>
+            </div>
+            <div class="language-selector">
+                <select id="languageSelect" onchange="changeLanguage()">
+                    <option value="ar">🇪🇬 عربي</option>
+                    <option value="en">🇺🇸 English</option>
+                </select>
+            </div>
+            <div class="menu-toggle">
+                <input type="checkbox" id="menu-toggle">
+                <label for="menu-toggle">☰</label>
+                <ul>
+                    <li><a href="/index.html" class="nav-link" data-i18n="nav_home">الرئيسية</a></li>
+                    <li><a href="/services/index.html" class="nav-link" data-i18n="nav_services">الخدمات</a></li>
+                    <li><a href="/about/index.html" class="nav-link" data-i18n="nav_about">من نحن</a></li>
+                    <li><a href="/con/index.html" class="nav-link" data-i18n="nav_contact">تواصل معنا</a></li>
+                    <li><a href="/baby/index.html" class="nav-link" data-i18n="nav_find_babysitters">ابحث عن جليسات أطفال</a></li>
+                    <li><a href="/booking/book.html" class="nav-link" data-i18n="nav_book_now">الحجز</a></li>
+                    <li id="dashboard-link" style="display: none;"><a href="/my_pro/profile.html" class="nav-link" data-i18n="nav_profile">الملف الشخصي</a></li>
+                    <li id="logout-link" style="display: none;"><a href="#" class="nav-link" onclick="logout(); return false;" data-i18n="nav_logout">تسجيل الخروج</a></li>
+                    <li id="login-signup-link"><a href="/log/login.html" class="nav-link" data-i18n="nav_login_signup">تسجيل الدخول / إنشاء حساب</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+<br><br>
+    <div class="container" id="container">
+        <div class="status" id="status"><i class="fas fa-info-circle"></i> جاهز لتسجيل الدخول...</div>
+        <div class="form-container sign-up">
+            <form id="signup-form">
+                <h1 data-i18n="form_title_signup">إنشاء حساب</h1>
+                <div class="social-icons">
+                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+                <span data-i18n="signup_span">أو استخدم بريدك الإلكتروني للتسجيل</span>
+                <input type="text" id="signup-name" placeholder="أدخل اسمك" required data-i18n-placeholder="label_name">
+                <input type="email" id="signup-email" placeholder="أدخل بريدك الإلكتروني" required data-i18n-placeholder="label_email">
+                <input type="password" id="signup-password" placeholder="أدخل كلمة المرور" required data-i18n-placeholder="label_password">
+                <button type="submit" data-i18n="btn_signup">إنشاء حساب</button>
+            </form>
+        </div>
+        <div class="form-container sign-in">
+            <form id="signin-form">
+                <h1 data-i18n="form_title">تسجيل الدخول</h1>
+                <div class="social-icons">
+                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+                <span data-i18n="signin_span">أو استخدم بريدك الإلكتروني وكلمة المرور</span>
+                <input type="email" id="signin-email" placeholder="أدخل بريدك الإلكتروني" required data-i18n-placeholder="label_email">
+                <input type="password" id="signin-password" placeholder="أدخل كلمة المرور" required autocomplete="current-password" data-i18n-placeholder="label_password">
+                <a href="#" data-i18n="forgot_password">نسيت كلمة المرور؟</a>
+                <button type="submit" data-i18n="btn_signin">تسجيل الدخول</button>
+            </form>
+        </div>
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1 data-i18n="welcome_back">مرحبًا بعودتك!</h1>
+                    <p data-i18n="welcome_back_text">أدخل بياناتك الشخصية لاستخدام جميع ميزات الموقع</p>
+                    <button id="login" data-i18n="btn_signin">تسجيل الدخول</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1 data-i18n="hello_friend">مرحبًا، صديق!</h1>
+                    <p data-i18n="hello_friend_text">سجل ببياناتك الشخصية لاستخدام جميع ميزات الموقع</p>
+                    <button id="register" data-i18n="btn_signup">إنشاء حساب</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button onclick="history.back()" class="back" data-i18n="btn_back">رجوع</button>
+<script src="script.js"></script>
+
+</body>
+</html>
